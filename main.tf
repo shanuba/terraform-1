@@ -78,6 +78,9 @@ resource "aws_instance" "my-ec2-1" {
   ami             = "ami-0e58b56aa4d64231b"
   instance_type   = var.instance_type
   security_groups = [aws_security_group.security_1.name]
+  tags = {
+    Name = "terraform1"
+  }
 }
 
 resource "aws_instance" "my-ec2-2" {
@@ -85,6 +88,10 @@ resource "aws_instance" "my-ec2-2" {
   ami             = "ami-07706bb32254a7fe5"
   instance_type   = var.instance_type
   security_groups = [aws_security_group.security_2.name]
+
+  tags = {
+    Name = "terraform-2"
+  }
 }
 
 output "instance_ip_east" {
